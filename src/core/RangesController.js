@@ -117,16 +117,17 @@ class RangesController {
   }
 
   checkIfMovingAllowed(movingTime, backBorderTime, forwardBorderTime) {
-    if (forwardBorderTime >= backBorderTime) {
-      if (movingTime <= backBorderTime || movingTime >= forwardBorderTime) {
-        return false;
-      }
-    } else {
-      if (movingTime >= forwardBorderTime && movingTime <= backBorderTime) {
-        return false;
+    if (document.querySelectorAll(".time-pointer").length !== 2) {
+      if (forwardBorderTime >= backBorderTime) {
+        if (movingTime <= backBorderTime || movingTime >= forwardBorderTime) {
+          return false;
+        }
+      } else {
+        if (movingTime >= forwardBorderTime && movingTime <= backBorderTime) {
+          return false;
+        }
       }
     }
-
     return true;
   }
 }
